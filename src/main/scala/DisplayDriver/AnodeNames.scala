@@ -1,4 +1,4 @@
-package displayDriver
+package DisplayDriver
 
 import chisel3._
 import chisel3.util._
@@ -10,7 +10,7 @@ import chisel3.util._
 * 
 */
 
-class anodes extends Module{
+class AnodeNames extends Module{
     val io = IO(new Bundle{
         val an0 = Output(UInt(4.W))
         val an1 = Output(UInt(4.W))

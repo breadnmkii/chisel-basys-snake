@@ -1,3 +1,8 @@
+package Game
+
+import chisel3._
+import chisel3.util._
+
 /* 
  * module for grid state, including collision detection and bounds detection
  * probably implement as some 2d array of the 7-seg display encoded as 1 active, 0 per

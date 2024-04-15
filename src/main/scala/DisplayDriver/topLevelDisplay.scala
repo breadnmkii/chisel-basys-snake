@@ -1,4 +1,4 @@
-package displayDriver
+package DisplayDriver
 
 import chisel3._
 import chisel3.util._
@@ -34,7 +34,7 @@ class topLevelDisplay() extends Module{
     chosenSegments := io.input
 
 
-    val characterSelect = Module(new characterSelectFSM)
+    val characterSelect = Module(new CharacterSelectFSM)
     characterSelect.io.char0 := chosenSegments(0)
     characterSelect.io.char1 := chosenSegments(1)
     characterSelect.io.char2 := chosenSegments(2)
@@ -43,7 +43,7 @@ class topLevelDisplay() extends Module{
 
     //1 is on for a segmenet 0 is off until this point
     //See board spec for active low 
-    io.segments  :=  ~characterSelect.io.segmenents
+    io.segments  :=  ~characterSelect.io.segments
     io.anode     :=  ~characterSelect.io.anodes
 
 }
