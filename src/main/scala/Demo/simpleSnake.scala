@@ -28,15 +28,18 @@ class simpleSnake(tickPeriod: Int) extends Module {
     })
 
     /* REGISTER/WIRE INITIALIZATIONS */
-    val grid = VecInit(Seq.fill(4)(0.U(7.W)))  // TODO use grid logic here?
+    val grid = Module(new GridLogic(3,5))   // 3x5 logical row board
+    grid.io.logicGrid(0) := "b00000".U
+    grid.io.logicGrid(1) := "b00000".U
+    grid.io.logicGrid(2) := "b00000".U
     
     /* MODULE INITIALIZATIONS */
     // Display mods
     val characterSelect = Module(new CharacterSelectFSM)
-    characterSelect.io.char0 := grid(0)
-    characterSelect.io.char1 := grid(1)
-    characterSelect.io.char2 := grid(2)
-    characterSelect.io.char3 := grid(3)
+    characterSelect.io.char0 := grid.io.segs(0)
+    characterSelect.io.char1 := grid.io.segs(1)
+    characterSelect.io.char2 := grid.io.segs(2)
+    characterSelect.io.char3 := grid.io.segs(3)
     
     // Game mods
     val playerInput_mod = Module(new PlayerInput)
@@ -46,28 +49,24 @@ class simpleSnake(tickPeriod: Int) extends Module {
     /* COMBINATIONAL LOGIC */
     switch (playerInput_mod.io.snake_direction) {
         is (playerInput_mod.up) {
-            grid(0) := "b0000000".U
-            grid(1) := "b0111110".U // U
-            grid(2) := "b1100111".U // P
-            grid(3) := "b0000000".U
+            grid.io.logicGrid(0) := "b01110".U
+            grid.io.logicGrid(1) := "b00000".U
+            grid.io.logicGrid(2) := "b00000".U
         }
         is (playerInput_mod.right) {
-            grid(0) := "b0000000".U
-            grid(1) := "b1011011".U // S
-            grid(2) := "b1110110".U // N
-            grid(3) := "b1001110".U // K
+            grid.io.logicGrid(0) := "b00000".U
+            grid.io.logicGrid(1) := "b00011".U
+            grid.io.logicGrid(2) := "b00000".U
         }
         is (playerInput_mod.down) {
-            grid(0) := "b0111101".U // D
-            grid(1) := "b1111110".U // O
-            grid(2) := "b0111110".U // U
-            grid(3) := "b1110110".U // N
+            grid.io.logicGrid(0) := "b00000".U
+            grid.io.logicGrid(1) := "b00000".U
+            grid.io.logicGrid(2) := "b01100".U
         }
         is (playerInput_mod.left) {
-            grid(0) := "b1011011".U // S
-            grid(1) := "b1110110".U // N
-            grid(2) := "b1001110".U // K
-            grid(3) := "b0000000".U
+            grid.io.logicGrid(0) := "b00000".U
+            grid.io.logicGrid(1) := "b11000".U
+            grid.io.logicGrid(2) := "b00000".U
         }
     }
 

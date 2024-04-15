@@ -11,7 +11,7 @@ import chisel3.stage.{ChiselGeneratorAnnotation}
 * Display driver for adaptng snake grid onto the 7-segment displays
 */
 
-class topLevelDisplay() extends Module{
+class topLevelDisplay extends Module{
     val io = IO(new Bundle{
         val input  = Input(Vec(4, UInt(7.W))) 
 
