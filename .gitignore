@@ -1,2 +1,5 @@
 .metals
 .vscode
+.bloop
+*.cache
+*.class
