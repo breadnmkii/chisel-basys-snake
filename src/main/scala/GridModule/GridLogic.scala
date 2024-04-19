@@ -30,13 +30,20 @@ class GridLogic(rows: Int, cols: Int) extends Module {
 
     /* GRID TO DISP TRANSLATION */
 
-    // init segments values for cols-1 segment displays
-    val segVals = Wire(Vec(cols-1, UInt(7.W)))
-    io.segs(0) := "b0000000".U
-    io.segs(1) := "b0000000".U
-    io.segs(2) := "b0000000".U
-    io.segs(3) := "b0000000".U
-    segVals := io.segs
+    // Create segments values for cols-1 segment displays
+    val segVals = Wire(Vec(cols-1, Vec(7, UInt(1.W))))
+
+    // Initialize seg vals
+    for (i <- 0 until cols-1) {
+        for (j <- 0 until 7) {
+            segVals(i)(j) := 0.U
+        }
+    }
+
+    // Connect seg vals
+    for (i <- 0 until cols-1) {
+        io.segs(i) := Cat(segVals(i)(0), segVals(i)(1), segVals(i)(2), segVals(i)(3), segVals(i)(4), segVals(i)(5), segVals(i)(6))
+    }
     
     // Iterate through grid
     for (i <- 0 until rows) {
@@ -44,26 +51,23 @@ class GridLogic(rows: Int, cols: Int) extends Module {
          // scan horizontal grid
         for (j <- 0 until cols-1) {
             // hardcoded for segment display
-            when (io.logicGrid(i)(j) && io.logicGrid(i)(j+1)) {
-                io.segs(j) := Cat("b1".U, segVals(i)(6,0))    // replace 0th "0" with "1" to enable A
-            }
             i match {
                 // top seg row (A cathode)
                 case 0 => {
                     when (io.logicGrid(i)(j) && io.logicGrid(i)(j+1)) {
-                        io.segs(j) := Cat("b1".U, segVals(i)(6,0))    // replace 0th "0" with "1" to enable A
+                        segVals(j)(0) := 1.U    // 0 = A
                     }
                 }
                 // mid seg row (G cathode)
                 case 1 => {
                     when (io.logicGrid(i)(j) && io.logicGrid(i)(j+1)) {
-                        io.segs(j) := Cat("b1".U, segVals(i)(6,0))
+                        segVals(j)(6) := 1.U    // 6 = G
                     }
                 }
                 // bot seg row (D cathode)
                 case 2 => {
                     when (io.logicGrid(i)(j) && io.logicGrid(i)(j+1)) {
-                        io.segs(j) := Cat("b1".U, segVals(i)(6,0))
+                        segVals(j)(3) := 1.U    // 3 = D
                     }
                 }
             }

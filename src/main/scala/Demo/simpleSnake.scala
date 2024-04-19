@@ -49,23 +49,23 @@ class simpleSnake(tickPeriod: Int) extends Module {
     /* COMBINATIONAL LOGIC */
     switch (playerInput_mod.io.snake_direction) {
         is (playerInput_mod.up) {
-            grid.io.logicGrid(0) := "b01110".U
+            grid.io.logicGrid(0) := "b11000".U
             grid.io.logicGrid(1) := "b00000".U
             grid.io.logicGrid(2) := "b00000".U
         }
         is (playerInput_mod.right) {
             grid.io.logicGrid(0) := "b00000".U
-            grid.io.logicGrid(1) := "b00011".U
+            grid.io.logicGrid(1) := "b01100".U
             grid.io.logicGrid(2) := "b00000".U
         }
         is (playerInput_mod.down) {
             grid.io.logicGrid(0) := "b00000".U
             grid.io.logicGrid(1) := "b00000".U
-            grid.io.logicGrid(2) := "b01100".U
+            grid.io.logicGrid(2) := "b00110".U
         }
         is (playerInput_mod.left) {
             grid.io.logicGrid(0) := "b00000".U
-            grid.io.logicGrid(1) := "b11000".U
+            grid.io.logicGrid(1) := "b00000".U
             grid.io.logicGrid(2) := "b00000".U
         }
     }
@@ -77,20 +77,18 @@ class simpleSnake(tickPeriod: Int) extends Module {
     // Executes every game clock tick
     when (gameClk.io.flag) {
         
-        // rotate segments
         switch (playerInput_mod.io.snake_direction) {
             is (playerInput_mod.right) {
-                // grid(0) := "b1101101".U
-                // grid(3) := grid(2)
-                // grid(2) := grid(1)
-                // grid(1) := grid(0)
-                // grid(0) := "b0000000".U
+                
             }
             is (playerInput_mod.left) {
-                // grid(3) := "b0000000".U
-                // grid(2) := grid(3)
-                // grid(1) := grid(2)
-                // grid(0) := grid(1)
+                
+            }
+            is (playerInput_mod.up) {
+
+            }
+            is (playerInput_mod.down) {
+                
             }
         }   
     }
