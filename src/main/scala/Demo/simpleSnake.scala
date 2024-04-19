@@ -28,10 +28,10 @@ class simpleSnake(tickPeriod: Int) extends Module {
     })
 
     /* REGISTER/WIRE INITIALIZATIONS */
-    val grid = Module(new GridLogic(3,5))   // 3x5 logical row board
-    grid.io.logicGrid(0) := "b00000".U
-    grid.io.logicGrid(1) := "b00000".U
-    grid.io.logicGrid(2) := "b00000".U
+    val grid = Module(new GridLogic(3,8))   // 3x8 logical row
+    grid.io.logicGrid(0) := "b00000000".U
+    grid.io.logicGrid(1) := "b00000000".U
+    grid.io.logicGrid(2) := "b00000000".U
     
     /* MODULE INITIALIZATIONS */
     // Display mods
@@ -49,24 +49,24 @@ class simpleSnake(tickPeriod: Int) extends Module {
     /* COMBINATIONAL LOGIC */
     switch (playerInput_mod.io.snake_direction) {
         is (playerInput_mod.up) {
-            grid.io.logicGrid(0) := "b11000".U
-            grid.io.logicGrid(1) := "b00000".U
-            grid.io.logicGrid(2) := "b00000".U
+            grid.io.logicGrid(0) := "b11111111".U
+            grid.io.logicGrid(1) := "b10000001".U
+            grid.io.logicGrid(2) := "b11111111".U
         }
         is (playerInput_mod.right) {
-            grid.io.logicGrid(0) := "b00000".U
-            grid.io.logicGrid(1) := "b01100".U
-            grid.io.logicGrid(2) := "b00000".U
+            grid.io.logicGrid(0) := "b10010011".U
+            grid.io.logicGrid(1) := "b10010011".U
+            grid.io.logicGrid(2) := "b10010011".U
         }
         is (playerInput_mod.down) {
-            grid.io.logicGrid(0) := "b00000".U
-            grid.io.logicGrid(1) := "b00000".U
-            grid.io.logicGrid(2) := "b00110".U
+            grid.io.logicGrid(0) := "b00000000".U
+            grid.io.logicGrid(1) := "b10001100".U
+            grid.io.logicGrid(2) := "b00001100".U
         }
         is (playerInput_mod.left) {
-            grid.io.logicGrid(0) := "b00000".U
-            grid.io.logicGrid(1) := "b00000".U
-            grid.io.logicGrid(2) := "b00000".U
+            grid.io.logicGrid(0) := "b00000011".U
+            grid.io.logicGrid(1) := "b00110000".U
+            grid.io.logicGrid(2) := "b11000000".U
         }
     }
 
@@ -97,7 +97,7 @@ class simpleSnake(tickPeriod: Int) extends Module {
     /* PHYSICAL IO CONNECTIONS */
     // Output
     io.segments  :=  Reverse(~characterSelect.io.segments)
-    io.anodes    :=  Reverse(~characterSelect.io.anodes)
+    io.anodes    :=  ~characterSelect.io.anodes
 
     io.dp := ~"b0".U        // enable all apples
 
@@ -105,7 +105,6 @@ class simpleSnake(tickPeriod: Int) extends Module {
     playerInput_mod.io.buttons := io.buttons
 
 }
-
 
 object simpleSnakeMain extends App{
     class simpleSnakeTop extends Module {
