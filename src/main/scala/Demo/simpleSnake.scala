@@ -28,10 +28,10 @@ class simpleSnake(tickPeriod: Int) extends Module {
     })
 
     /* REGISTER/WIRE INITIALIZATIONS */
-    val grid = Module(new GridLogic(3,5))   // 3x5 logical row board
-    grid.io.logicGrid(0) := "b00000".U
-    grid.io.logicGrid(1) := "b00000".U
-    grid.io.logicGrid(2) := "b00000".U
+    val grid = Module(new GridLogic(3,8))   // 3x8 logical grid
+    grid.io.logicGrid(0) := "b00000000".U
+    grid.io.logicGrid(1) := "b00000000".U
+    grid.io.logicGrid(2) := "b00000000".U
     
     /* MODULE INITIALIZATIONS */
     // Display mods
@@ -49,24 +49,24 @@ class simpleSnake(tickPeriod: Int) extends Module {
     /* COMBINATIONAL LOGIC */
     switch (playerInput_mod.io.snake_direction) {
         is (playerInput_mod.up) {
-            grid.io.logicGrid(0) := "b11000".U
-            grid.io.logicGrid(1) := "b00000".U
-            grid.io.logicGrid(2) := "b00000".U
+            grid.io.logicGrid(0) := "b11111111".U
+            grid.io.logicGrid(1) := "b10000001".U
+            grid.io.logicGrid(2) := "b11111111".U
         }
         is (playerInput_mod.right) {
-            grid.io.logicGrid(0) := "b00000".U
-            grid.io.logicGrid(1) := "b01100".U
-            grid.io.logicGrid(2) := "b00000".U
+            grid.io.logicGrid(0) := "b10010011".U
+            grid.io.logicGrid(1) := "b10010011".U
+            grid.io.logicGrid(2) := "b10010011".U
         }
         is (playerInput_mod.down) {
-            grid.io.logicGrid(0) := "b00000".U
-            grid.io.logicGrid(1) := "b00000".U
-            grid.io.logicGrid(2) := "b00110".U
+            grid.io.logicGrid(0) := "b10101010".U
+            grid.io.logicGrid(1) := "b11111110".U
+            grid.io.logicGrid(2) := "b01010100".U
         }
         is (playerInput_mod.left) {
-            grid.io.logicGrid(0) := "b00000".U
-            grid.io.logicGrid(1) := "b00000".U
-            grid.io.logicGrid(2) := "b00000".U
+            grid.io.logicGrid(0) := "b00100100".U
+            grid.io.logicGrid(1) := "b00100100".U
+            grid.io.logicGrid(2) := "b00100100".U
         }
     }
 
@@ -77,27 +77,30 @@ class simpleSnake(tickPeriod: Int) extends Module {
     // Executes every game clock tick
     when (gameClk.io.flag) {
         
+        // Update head position of snake
         switch (playerInput_mod.io.snake_direction) {
             is (playerInput_mod.right) {
+                // row = row, col += 1
                 
             }
             is (playerInput_mod.left) {
+                // row = row, col -= 1
                 
             }
             is (playerInput_mod.up) {
-
+                // row -= 1, col = col
             }
             is (playerInput_mod.down) {
-                
+                // row += 1, col = col
             }
-        }   
+        }
     }
 
 
     /* PHYSICAL IO CONNECTIONS */
     // Output
     io.segments  :=  Reverse(~characterSelect.io.segments)
-    io.anodes    :=  Reverse(~characterSelect.io.anodes)
+    io.anodes    :=  ~characterSelect.io.anodes
 
     io.dp := ~"b0".U        // enable all apples
 
@@ -105,7 +108,6 @@ class simpleSnake(tickPeriod: Int) extends Module {
     playerInput_mod.io.buttons := io.buttons
 
 }
-
 
 object simpleSnakeMain extends App{
     class simpleSnakeTop extends Module {
