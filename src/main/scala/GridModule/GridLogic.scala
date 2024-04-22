@@ -16,18 +16,6 @@ class GridLogic(rows: Int, cols: Int) extends Module {
         val segs = Output(Vec(cols/2, UInt(7.W)))          // physical display
     })
 
-    // // Helper enum
-    // object Cathode extends Enumeration {
-    //     val A = 0
-    //     val B = 1
-    //     val C = 2
-    //     val D = 3
-    //     val E = 4
-    //     val F = 5
-    //     val G = 6
-    // }
-
-
     /* GRID TO DISP TRANSLATION */
 
     // Create segments values for cols/2 segment displays
@@ -51,22 +39,18 @@ class GridLogic(rows: Int, cols: Int) extends Module {
          // scan horizontal grid
         for (j <- 0 until cols/2) {
             // Note: j --> j*2 for stepping thru cols/2 top cathode count
-            i match {
-                // top seg row (A cathode)
-                case 0 => {
-                    when (io.logicGrid(i)(j*2) && io.logicGrid(i)(j*2+1)) {
+            when (io.logicGrid(i)(j*2) && io.logicGrid(i)((j*2)+1)) {
+                i match {
+                    // top seg row (A cathode)
+                    case 0 => {
                         segVals(j)(0) := 1.U    // 0 = A
                     }
-                }
-                // mid seg row (G cathode)
-                case 1 => {
-                    when (io.logicGrid(i)(j*2) && io.logicGrid(i)(j*2+1)) {
+                    // mid seg row (G cathode)
+                    case 1 => {
                         segVals(j)(6) := 1.U    // 6 = G
                     }
-                }
-                // bot seg row (D cathode)
-                case 2 => {
-                    when (io.logicGrid(i)(j*2) && io.logicGrid(i)(j*2+1)) {
+                    // bot seg row (D cathode)
+                    case 2 => {
                         segVals(j)(3) := 1.U    // 3 = D
                     }
                 }
@@ -78,25 +62,23 @@ class GridLogic(rows: Int, cols: Int) extends Module {
             
             // Only draw vertical lines if middle row enabled
             when (io.logicGrid(1)(j)) {
-                // top row
-                when (io.logicGrid(0)(j)) {
-                    if (j%2 != 0) {
-                        // odd col, segment B
+                
+                if (j%2 == 0) {
+                    // odd col, segments B or C
+                    when (io.logicGrid(0)(j)) { // top segment
                         segVals(j/2)(1) := 1.U   // 1 = B
                     }
-                    else {
-                        // even col, segment F
-                        segVals(j/2)(5) := 1.U   // 5 = F
-                    }
-                }
-                // bot row
-                .elsewhen (io.logicGrid(2)(j)) {
-                    if (j%2 != 0) {
+                    when (io.logicGrid(2)(j)) { // bottom segment
                         // odd col, segment C
                         segVals(j/2)(2) := 1.U  // 2 = C
                     }
-                    else {
-                        // even col, segment E
+                } else {
+                    // even col, segments F or E
+                    when (io.logicGrid(0)(j)) { // top segment
+                        
+                        segVals(j/2)(5) := 1.U   // 5 = F
+                    }
+                    when (io.logicGrid(2)(j)) { // bottom segment
                         segVals(j/2)(4) := 1.U  // 4 = E
                     }
                 }
