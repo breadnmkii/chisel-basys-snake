@@ -51,124 +51,55 @@
 `endif // not def SYNTHESIS
 
 module GridLogic(	// <stdin>:3:3
-  input  [7:0] io_logicGrid_0,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
-               io_logicGrid_1,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
-               io_logicGrid_2,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
+  input        io_logicGrid_0_0,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
+               io_logicGrid_0_2,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
+               io_logicGrid_0_3,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
+               io_logicGrid_0_4,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
+               io_logicGrid_0_5,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
+               io_logicGrid_0_7,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
+               io_logicGrid_1_0,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
+               io_logicGrid_1_7,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
+               io_logicGrid_2_0,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
+               io_logicGrid_2_2,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
+               io_logicGrid_2_3,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
+               io_logicGrid_2_4,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
+               io_logicGrid_2_5,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
+               io_logicGrid_2_7,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
   output [6:0] io_segs_0,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
                io_segs_1,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
                io_segs_2,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
                io_segs_3	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16
 );
 
-  wire segVals_3_4;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :81:47
-  wire segVals_3_5;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :77:47
-  wire segVals_3_2;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :71:47
-  wire segVals_3_1;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :68:47
-  wire segVals_2_4;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :81:47
-  wire segVals_2_5;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :77:47
-  wire segVals_2_2;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :71:47
-  wire segVals_2_1;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :68:47
-  wire segVals_1_4;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :81:47
-  wire segVals_1_5;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :77:47
-  wire segVals_1_2;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :71:47
-  wire segVals_1_1;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :68:47
-  wire segVals_0_4;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :81:47
-  wire segVals_0_5;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :77:47
-  wire segVals_0_2;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :71:47
-  wire segVals_0_1;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:39, :68:47
-  wire segVals_3_3;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40
-  wire segVals_2_3;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40
-  wire segVals_1_3;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40
-  wire segVals_0_3;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40
-  wire segVals_3_6;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40
-  wire segVals_2_6;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40
-  wire segVals_1_6;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40
-  wire segVals_0_6;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40
-  wire segVals_3_0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40
-  wire segVals_2_0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40
-  wire segVals_1_0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40
-  wire segVals_0_0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40
-  assign segVals_0_0 = io_logicGrid_0[0] & io_logicGrid_0[1];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:{34,40,58}
-  assign segVals_1_0 = io_logicGrid_0[2] & io_logicGrid_0[3];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:{34,40,58}
-  assign segVals_2_0 = io_logicGrid_0[4] & io_logicGrid_0[5];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:{34,40,58}
-  assign segVals_3_0 = io_logicGrid_0[6] & io_logicGrid_0[7];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:{34,40,58}
-  assign segVals_0_6 = io_logicGrid_1[0] & io_logicGrid_1[1];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40, :64:34
-  assign segVals_1_6 = io_logicGrid_1[2] & io_logicGrid_1[3];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40, :64:34
-  assign segVals_2_6 = io_logicGrid_1[4] & io_logicGrid_1[5];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40, :64:34
-  assign segVals_3_6 = io_logicGrid_1[6] & io_logicGrid_1[7];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40, :64:34
-  assign segVals_0_3 = io_logicGrid_2[0] & io_logicGrid_2[1];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40, :71:42, :81:42
-  assign segVals_1_3 = io_logicGrid_2[2] & io_logicGrid_2[3];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40, :71:42, :81:42
-  assign segVals_2_3 = io_logicGrid_2[4] & io_logicGrid_2[5];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40, :71:42, :81:42
-  assign segVals_3_3 = io_logicGrid_2[6] & io_logicGrid_2[7];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:40, :71:42, :81:42
-  assign segVals_0_1 =
-    io_logicGrid_1[0] & io_logicGrid_0[0] | io_logicGrid_1[0] & io_logicGrid_0[0];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:34, :64:{34,39}, :68:47, :69:41
-  assign segVals_0_2 =
-    io_logicGrid_1[0] & io_logicGrid_2[0] | io_logicGrid_1[0] & io_logicGrid_2[0];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:{34,39}, :71:{42,47}, :73:41
+  wire segVals_3_2;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:47, :71:55
+  wire segVals_3_1;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:47, :68:55
+  wire segVals_0_4;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:47, :80:55
+  wire segVals_0_5;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:47, :77:55
+  wire segVals_2_3;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:41
+  wire segVals_1_3;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:41
+  wire segVals_2_0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:41
+  wire segVals_1_0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:41
+  assign segVals_1_0 = io_logicGrid_0_2 & io_logicGrid_0_3;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:41
+  assign segVals_2_0 = io_logicGrid_0_4 & io_logicGrid_0_5;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:41
+  assign segVals_1_3 = io_logicGrid_2_2 & io_logicGrid_2_3;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:41
+  assign segVals_2_3 = io_logicGrid_2_4 & io_logicGrid_2_5;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:41
   assign segVals_0_5 =
-    io_logicGrid_1[1] & io_logicGrid_0[1] | io_logicGrid_1[1] & io_logicGrid_0[1];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:58, :64:{34,39}, :77:47, :79:41
+    io_logicGrid_1_0 & io_logicGrid_0_0 | io_logicGrid_1_0 & io_logicGrid_0_0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:47, :77:55, :78:41
   assign segVals_0_4 =
-    io_logicGrid_1[1] & io_logicGrid_2[1] | io_logicGrid_1[1] & io_logicGrid_2[1];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:{34,39}, :81:{42,47}, :82:41
-  assign segVals_1_1 =
-    io_logicGrid_1[2] & io_logicGrid_0[2] | io_logicGrid_1[2] & io_logicGrid_0[2];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:34, :64:{34,39}, :68:47, :69:41
-  assign segVals_1_2 =
-    io_logicGrid_1[2] & io_logicGrid_2[2] | io_logicGrid_1[2] & io_logicGrid_2[2];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:{34,39}, :71:{42,47}, :73:41
-  assign segVals_1_5 =
-    io_logicGrid_1[3] & io_logicGrid_0[3] | io_logicGrid_1[3] & io_logicGrid_0[3];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:58, :64:{34,39}, :77:47, :79:41
-  assign segVals_1_4 =
-    io_logicGrid_1[3] & io_logicGrid_2[3] | io_logicGrid_1[3] & io_logicGrid_2[3];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:{34,39}, :81:{42,47}, :82:41
-  assign segVals_2_1 =
-    io_logicGrid_1[4] & io_logicGrid_0[4] | io_logicGrid_1[4] & io_logicGrid_0[4];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:34, :64:{34,39}, :68:47, :69:41
-  assign segVals_2_2 =
-    io_logicGrid_1[4] & io_logicGrid_2[4] | io_logicGrid_1[4] & io_logicGrid_2[4];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:{34,39}, :71:{42,47}, :73:41
-  assign segVals_2_5 =
-    io_logicGrid_1[5] & io_logicGrid_0[5] | io_logicGrid_1[5] & io_logicGrid_0[5];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:58, :64:{34,39}, :77:47, :79:41
-  assign segVals_2_4 =
-    io_logicGrid_1[5] & io_logicGrid_2[5] | io_logicGrid_1[5] & io_logicGrid_2[5];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:{34,39}, :81:{42,47}, :82:41
+    io_logicGrid_1_0 & io_logicGrid_2_0 | io_logicGrid_1_0 & io_logicGrid_2_0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:47, :80:55, :81:41
   assign segVals_3_1 =
-    io_logicGrid_1[6] & io_logicGrid_0[6] | io_logicGrid_1[6] & io_logicGrid_0[6];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:34, :64:{34,39}, :68:47, :69:41
+    io_logicGrid_1_7 & io_logicGrid_0_7 | io_logicGrid_1_7 & io_logicGrid_0_7;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:47, :68:55, :69:41
   assign segVals_3_2 =
-    io_logicGrid_1[6] & io_logicGrid_2[6] | io_logicGrid_1[6] & io_logicGrid_2[6];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:{34,39}, :71:{42,47}, :73:41
-  assign segVals_3_5 =
-    io_logicGrid_1[7] & io_logicGrid_0[7] | io_logicGrid_1[7] & io_logicGrid_0[7];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:42:58, :64:{34,39}, :77:47, :79:41
-  assign segVals_3_4 =
-    io_logicGrid_1[7] & io_logicGrid_2[7] | io_logicGrid_1[7] & io_logicGrid_2[7];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:{34,39}, :81:{42,47}, :82:41
-  assign io_segs_0 =
-    {segVals_0_0,
-     segVals_0_1,
-     segVals_0_2,
-     segVals_0_3,
-     segVals_0_4,
-     segVals_0_5,
-     segVals_0_6};	// <stdin>:3:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:33:26, :42:40, :64:39, :68:47, :71:47, :77:47, :81:47
-  assign io_segs_1 =
-    {segVals_1_0,
-     segVals_1_1,
-     segVals_1_2,
-     segVals_1_3,
-     segVals_1_4,
-     segVals_1_5,
-     segVals_1_6};	// <stdin>:3:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:33:26, :42:40, :64:39, :68:47, :71:47, :77:47, :81:47
-  assign io_segs_2 =
-    {segVals_2_0,
-     segVals_2_1,
-     segVals_2_2,
-     segVals_2_3,
-     segVals_2_4,
-     segVals_2_5,
-     segVals_2_6};	// <stdin>:3:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:33:26, :42:40, :64:39, :68:47, :71:47, :77:47, :81:47
-  assign io_segs_3 =
-    {segVals_3_0,
-     segVals_3_1,
-     segVals_3_2,
-     segVals_3_3,
-     segVals_3_4,
-     segVals_3_5,
-     segVals_3_6};	// <stdin>:3:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:33:26, :42:40, :64:39, :68:47, :71:47, :77:47, :81:47
+    io_logicGrid_1_7 & io_logicGrid_2_7 | io_logicGrid_1_7 & io_logicGrid_2_7;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:64:47, :71:55, :73:41
+  assign io_segs_0 = {4'h0, segVals_0_4, segVals_0_5, 1'h0};	// <stdin>:3:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16, :22:23, :33:26, :64:47, :77:55, :80:55
+  assign io_segs_1 = {segVals_1_0, 2'h0, segVals_1_3, 3'h0};	// <stdin>:3:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:33:26, :42:41
+  assign io_segs_2 = {segVals_2_0, 2'h0, segVals_2_3, 3'h0};	// <stdin>:3:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:33:26, :42:41
+  assign io_segs_3 = {1'h0, segVals_3_1, segVals_3_2, 4'h0};	// <stdin>:3:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\GridModule\\GridLogic.scala:14:16, :22:23, :33:26, :64:47, :68:55, :71:55
 endmodule
 
-module CharacterSelectFSM(	// <stdin>:341:3
-  input        clock,	// <stdin>:342:11
-               reset,	// <stdin>:343:11
+module CharacterSelectFSM(	// <stdin>:329:3
+  input        clock,	// <stdin>:330:11
+               reset,	// <stdin>:331:11
   input  [6:0] io_char0,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:14:16
                io_char1,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:14:16
                io_char2,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:14:16
@@ -181,11 +112,11 @@ module CharacterSelectFSM(	// <stdin>:341:3
   reg [6:0]  hot_char_segments;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:34:27
   reg [3:0]  hot_char_anodes;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:35:25
   reg [31:0] refresh_counter;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:39:34
-  always @(posedge clock) begin	// <stdin>:342:11
+  always @(posedge clock) begin	// <stdin>:330:11
     automatic logic _GEN;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:43:26
     _GEN = refresh_counter == 32'h61A80;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:39:34, :43:26
-    if (reset) begin	// <stdin>:342:11
-      posReg <= 2'h0;	// <stdin>:341:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:30:25
+    if (reset) begin	// <stdin>:330:11
+      posReg <= 2'h0;	// <stdin>:329:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:30:25
       refresh_counter <= 32'h0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:39:34
     end
     else if (_GEN) begin	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:43:26
@@ -203,43 +134,43 @@ module CharacterSelectFSM(	// <stdin>:341:3
       hot_char_anodes <= _GEN_1[posReg];	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:30:25, :35:25, :48:23, :51:33, :56:33, :61:33, :66:33
     end
   end // always @(posedge)
-  `ifdef ENABLE_INITIAL_REG_	// <stdin>:341:3
-    `ifdef FIRRTL_BEFORE_INITIAL	// <stdin>:341:3
-      `FIRRTL_BEFORE_INITIAL	// <stdin>:341:3
+  `ifdef ENABLE_INITIAL_REG_	// <stdin>:329:3
+    `ifdef FIRRTL_BEFORE_INITIAL	// <stdin>:329:3
+      `FIRRTL_BEFORE_INITIAL	// <stdin>:329:3
     `endif // FIRRTL_BEFORE_INITIAL
-    initial begin	// <stdin>:341:3
-      automatic logic [31:0] _RANDOM[0:1];	// <stdin>:341:3
-      `ifdef INIT_RANDOM_PROLOG_	// <stdin>:341:3
-        `INIT_RANDOM_PROLOG_	// <stdin>:341:3
+    initial begin	// <stdin>:329:3
+      automatic logic [31:0] _RANDOM[0:1];	// <stdin>:329:3
+      `ifdef INIT_RANDOM_PROLOG_	// <stdin>:329:3
+        `INIT_RANDOM_PROLOG_	// <stdin>:329:3
       `endif // INIT_RANDOM_PROLOG_
-      `ifdef RANDOMIZE_REG_INIT	// <stdin>:341:3
+      `ifdef RANDOMIZE_REG_INIT	// <stdin>:329:3
         for (logic [1:0] i = 2'h0; i < 2'h2; i += 2'h1) begin
-          _RANDOM[i[0]] = `RANDOM;	// <stdin>:341:3
-        end	// <stdin>:341:3
-        posReg = _RANDOM[1'h0][1:0];	// <stdin>:341:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:30:25
-        hot_char_segments = _RANDOM[1'h0][8:2];	// <stdin>:341:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:30:25, :34:27
-        hot_char_anodes = _RANDOM[1'h0][12:9];	// <stdin>:341:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:30:25, :35:25
-        refresh_counter = {_RANDOM[1'h0][31:13], _RANDOM[1'h1][12:0]};	// <stdin>:341:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:30:25, :39:34
+          _RANDOM[i[0]] = `RANDOM;	// <stdin>:329:3
+        end	// <stdin>:329:3
+        posReg = _RANDOM[1'h0][1:0];	// <stdin>:329:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:30:25
+        hot_char_segments = _RANDOM[1'h0][8:2];	// <stdin>:329:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:30:25, :34:27
+        hot_char_anodes = _RANDOM[1'h0][12:9];	// <stdin>:329:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:30:25, :35:25
+        refresh_counter = {_RANDOM[1'h0][31:13], _RANDOM[1'h1][12:0]};	// <stdin>:329:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:30:25, :39:34
       `endif // RANDOMIZE_REG_INIT
     end // initial
-    `ifdef FIRRTL_AFTER_INITIAL	// <stdin>:341:3
-      `FIRRTL_AFTER_INITIAL	// <stdin>:341:3
+    `ifdef FIRRTL_AFTER_INITIAL	// <stdin>:329:3
+      `FIRRTL_AFTER_INITIAL	// <stdin>:329:3
     `endif // FIRRTL_AFTER_INITIAL
   `endif // ENABLE_INITIAL_REG_
-  assign io_segments = hot_char_segments;	// <stdin>:341:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:34:27
-  assign io_anodes = hot_char_anodes;	// <stdin>:341:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:35:25
+  assign io_segments = hot_char_segments;	// <stdin>:329:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:34:27
+  assign io_anodes = hot_char_anodes;	// <stdin>:329:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\DisplayDriver\\CharacterSelectFSM.scala:35:25
 endmodule
 
-module PlayerInput(	// <stdin>:389:3
-  input        clock,	// <stdin>:390:11
-               reset,	// <stdin>:391:11
+module PlayerInput(	// <stdin>:377:3
+  input        clock,	// <stdin>:378:11
+               reset,	// <stdin>:379:11
   input  [3:0] io_buttons,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\InputModule\\PlayerInput.scala:18:16
   output [1:0] io_snake_direction	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\InputModule\\PlayerInput.scala:18:16
 );
 
   reg [1:0] lastDirection;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\InputModule\\PlayerInput.scala:31:32
-  always @(posedge clock) begin	// <stdin>:390:11
-    if (reset)	// <stdin>:390:11
+  always @(posedge clock) begin	// <stdin>:378:11
+    if (reset)	// <stdin>:378:11
       lastDirection <= 2'h0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\InputModule\\PlayerInput.scala:31:32
     else if (io_buttons[0])	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\InputModule\\PlayerInput.scala:36:20
       lastDirection <= 2'h0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\InputModule\\PlayerInput.scala:31:32
@@ -250,22 +181,22 @@ module PlayerInput(	// <stdin>:389:3
     else if (io_buttons[3])	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\InputModule\\PlayerInput.scala:45:26
       lastDirection <= 2'h3;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\InputModule\\PlayerInput.scala:31:32, :46:28
   end // always @(posedge)
-  `ifdef ENABLE_INITIAL_REG_	// <stdin>:389:3
-    `ifdef FIRRTL_BEFORE_INITIAL	// <stdin>:389:3
-      `FIRRTL_BEFORE_INITIAL	// <stdin>:389:3
+  `ifdef ENABLE_INITIAL_REG_	// <stdin>:377:3
+    `ifdef FIRRTL_BEFORE_INITIAL	// <stdin>:377:3
+      `FIRRTL_BEFORE_INITIAL	// <stdin>:377:3
     `endif // FIRRTL_BEFORE_INITIAL
-    initial begin	// <stdin>:389:3
-      automatic logic [31:0] _RANDOM[0:0];	// <stdin>:389:3
-      `ifdef INIT_RANDOM_PROLOG_	// <stdin>:389:3
-        `INIT_RANDOM_PROLOG_	// <stdin>:389:3
+    initial begin	// <stdin>:377:3
+      automatic logic [31:0] _RANDOM[0:0];	// <stdin>:377:3
+      `ifdef INIT_RANDOM_PROLOG_	// <stdin>:377:3
+        `INIT_RANDOM_PROLOG_	// <stdin>:377:3
       `endif // INIT_RANDOM_PROLOG_
-      `ifdef RANDOMIZE_REG_INIT	// <stdin>:389:3
-        _RANDOM[/*Zero width*/ 1'b0] = `RANDOM;	// <stdin>:389:3
-        lastDirection = _RANDOM[/*Zero width*/ 1'b0][1:0];	// <stdin>:389:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\InputModule\\PlayerInput.scala:31:32
+      `ifdef RANDOMIZE_REG_INIT	// <stdin>:377:3
+        _RANDOM[/*Zero width*/ 1'b0] = `RANDOM;	// <stdin>:377:3
+        lastDirection = _RANDOM[/*Zero width*/ 1'b0][1:0];	// <stdin>:377:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\InputModule\\PlayerInput.scala:31:32
       `endif // RANDOMIZE_REG_INIT
     end // initial
-    `ifdef FIRRTL_AFTER_INITIAL	// <stdin>:389:3
-      `FIRRTL_AFTER_INITIAL	// <stdin>:389:3
+    `ifdef FIRRTL_AFTER_INITIAL	// <stdin>:377:3
+      `FIRRTL_AFTER_INITIAL	// <stdin>:377:3
     `endif // FIRRTL_AFTER_INITIAL
   `endif // ENABLE_INITIAL_REG_
   assign io_snake_direction =
@@ -273,53 +204,124 @@ module PlayerInput(	// <stdin>:389:3
       ? 2'h0
       : io_buttons[1]
           ? 2'h1
-          : io_buttons[2] ? 2'h2 : io_buttons[3] ? 2'h3 : lastDirection;	// <stdin>:389:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\InputModule\\PlayerInput.scala:31:32, :36:{20,25}, :37:28, :39:{26,31}, :40:28, :42:{26,31}, :43:28, :45:{26,31}, :46:28, :49:28
+          : io_buttons[2] ? 2'h2 : io_buttons[3] ? 2'h3 : lastDirection;	// <stdin>:377:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\InputModule\\PlayerInput.scala:31:32, :36:{20,25}, :37:28, :39:{26,31}, :40:28, :42:{26,31}, :43:28, :45:{26,31}, :46:28, :49:28
 endmodule
 
-module simpleSnake(	// <stdin>:440:3
-  input        clock,	// <stdin>:441:11
-               reset,	// <stdin>:442:11
+module AnyCounter(	// <stdin>:409:3
+  input  clock,	// <stdin>:410:11
+         reset,	// <stdin>:411:11
+  output io_flag	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\HelperModules\\AnyCounter.scala:10:16
+);
+
+  reg        flagVal;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\HelperModules\\AnyCounter.scala:13:26
+  reg [31:0] cntReg;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\HelperModules\\AnyCounter.scala:18:25
+  always @(posedge clock) begin	// <stdin>:410:11
+    if (reset) begin	// <stdin>:410:11
+      flagVal <= 1'h0;	// <stdin>:409:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\HelperModules\\AnyCounter.scala:13:26
+      cntReg <= 32'h0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\HelperModules\\AnyCounter.scala:18:25
+    end
+    else begin	// <stdin>:410:11
+      automatic logic _flagVal_T_1;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\HelperModules\\AnyCounter.scala:20:26
+      _flagVal_T_1 = cntReg == 32'hFE5029;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\HelperModules\\AnyCounter.scala:18:25, :20:26
+      flagVal <= _flagVal_T_1;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\HelperModules\\AnyCounter.scala:13:26, :20:26
+      if (_flagVal_T_1)	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\HelperModules\\AnyCounter.scala:20:26
+        cntReg <= 32'h0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\HelperModules\\AnyCounter.scala:18:25
+      else	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\HelperModules\\AnyCounter.scala:20:26
+        cntReg <= cntReg + 32'h1;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\HelperModules\\AnyCounter.scala:18:25, :20:51
+    end
+  end // always @(posedge)
+  `ifdef ENABLE_INITIAL_REG_	// <stdin>:409:3
+    `ifdef FIRRTL_BEFORE_INITIAL	// <stdin>:409:3
+      `FIRRTL_BEFORE_INITIAL	// <stdin>:409:3
+    `endif // FIRRTL_BEFORE_INITIAL
+    initial begin	// <stdin>:409:3
+      automatic logic [31:0] _RANDOM[0:1];	// <stdin>:409:3
+      `ifdef INIT_RANDOM_PROLOG_	// <stdin>:409:3
+        `INIT_RANDOM_PROLOG_	// <stdin>:409:3
+      `endif // INIT_RANDOM_PROLOG_
+      `ifdef RANDOMIZE_REG_INIT	// <stdin>:409:3
+        for (logic [1:0] i = 2'h0; i < 2'h2; i += 2'h1) begin
+          _RANDOM[i[0]] = `RANDOM;	// <stdin>:409:3
+        end	// <stdin>:409:3
+        flagVal = _RANDOM[1'h0][0];	// <stdin>:409:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\HelperModules\\AnyCounter.scala:13:26
+        cntReg = {_RANDOM[1'h0][31:1], _RANDOM[1'h1][0]};	// <stdin>:409:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\HelperModules\\AnyCounter.scala:13:26, :18:25
+      `endif // RANDOMIZE_REG_INIT
+    end // initial
+    `ifdef FIRRTL_AFTER_INITIAL	// <stdin>:409:3
+      `FIRRTL_AFTER_INITIAL	// <stdin>:409:3
+    `endif // FIRRTL_AFTER_INITIAL
+  `endif // ENABLE_INITIAL_REG_
+  assign io_flag = flagVal;	// <stdin>:409:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\HelperModules\\AnyCounter.scala:13:26
+endmodule
+
+module simpleSnake(	// <stdin>:428:3
+  input        clock,	// <stdin>:429:11
+               reset,	// <stdin>:430:11
   input  [3:0] io_buttons,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:23:16
   output [6:0] io_segments,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:23:16
   output [3:0] io_anodes	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:23:16
 );
 
-  wire [1:0]      _playerInput_mod_io_snake_direction;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:45:33
-  wire [6:0]      _characterSelect_io_segments;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:33
-  wire [3:0]      _characterSelect_io_anodes;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:33
-  wire [6:0]      _grid_io_segs_0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:31:22
-  wire [6:0]      _grid_io_segs_1;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:31:22
-  wire [6:0]      _grid_io_segs_2;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:31:22
-  wire [6:0]      _grid_io_segs_3;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:31:22
-  wire [7:0]      _GEN = (&_playerInput_mod_io_snake_direction) ? 8'h24 : 8'h0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:32:26, :45:33, :50:49, :67:34
-  wire [3:0][7:0] _GEN_0 = {{_GEN}, {8'hAA}, {8'h93}, {8'hFF}};	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:32:26, :50:49, :52:34, :57:34, :62:34, :67:34
-  wire [3:0][7:0] _GEN_1 = {{_GEN}, {8'hFE}, {8'h93}, {8'h81}};	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:32:26, :50:49, :53:34, :57:34, :58:34, :63:34, :67:34
-  wire [3:0][7:0] _GEN_2 = {{_GEN}, {8'h54}, {8'h93}, {8'hFF}};	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:32:26, :50:49, :52:34, :54:34, :57:34, :59:34, :64:34, :67:34
-  wire [6:0]      _io_segments_T = ~_characterSelect_io_segments;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:33, :99:30
-  GridLogic grid (	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:31:22
-    .io_logicGrid_0 (_GEN_0[_playerInput_mod_io_snake_direction]),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:45:33, :50:49, :52:34, :57:34, :62:34
-    .io_logicGrid_1 (_GEN_1[_playerInput_mod_io_snake_direction]),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:45:33, :50:49, :53:34, :58:34, :63:34
-    .io_logicGrid_2 (_GEN_2[_playerInput_mod_io_snake_direction]),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:45:33, :50:49, :54:34, :59:34, :64:34
-    .io_segs_0      (_grid_io_segs_0),
-    .io_segs_1      (_grid_io_segs_1),
-    .io_segs_2      (_grid_io_segs_2),
-    .io_segs_3      (_grid_io_segs_3)
+  wire       _gameClk_io_flag;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:74:25
+  wire [1:0] _playerInput_mod_io_snake_direction;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:73:33
+  wire [6:0] _characterSelect_io_segments;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:66:33
+  wire [3:0] _characterSelect_io_anodes;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:66:33
+  wire [6:0] _grid_io_segs_0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:60:22
+  wire [6:0] _grid_io_segs_1;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:60:22
+  wire [6:0] _grid_io_segs_2;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:60:22
+  wire [6:0] _grid_io_segs_3;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:60:22
+  wire       _GEN = _playerInput_mod_io_snake_direction == 2'h0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:73:33, :79:49
+  wire       _GEN_0 = _playerInput_mod_io_snake_direction == 2'h1;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:73:33, :79:49
+  wire       _GEN_1 = _playerInput_mod_io_snake_direction == 2'h2;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:54:27, :73:33, :79:49
+  wire       _GEN_2 = _GEN | _GEN_0 | _GEN_1;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:29, :79:49
+  wire       gameBoard_0_5 = ~_gameClk_io_flag & _GEN;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:74:25, :79:49, :110:28, :143:81
+  wire       gameBoard_2_7 = ~(_gameClk_io_flag | _GEN) & _GEN_0;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:29, :74:25, :79:49, :110:28, :143:81
+  wire       gameBoard_2_0 =
+    ~(_gameClk_io_flag | _GEN_2) & (&_playerInput_mod_io_snake_direction);	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:29, :73:33, :74:25, :79:49, :110:28, :143:81
+  wire       gameBoard_2_5 = ~(_gameClk_io_flag | _GEN | _GEN_0) & _GEN_1;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:29, :74:25, :79:49, :110:28, :143:81
+  wire [6:0] _io_segments_T = ~_characterSelect_io_segments;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:66:33, :156:30
+  wire [3:0] _io_anodes_T = ~_characterSelect_io_anodes;	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:66:33, :157:30
+  GridLogic grid (	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:60:22
+    .io_logicGrid_0_0
+      (_gameClk_io_flag | ~_GEN_2 & (&_playerInput_mod_io_snake_direction)),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:29, :73:33, :74:25, :79:49, :110:28, :143:81
+    .io_logicGrid_0_2 (gameBoard_0_5),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:79:49, :110:28, :143:81
+    .io_logicGrid_0_3 (gameBoard_0_5),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:79:49, :110:28, :143:81
+    .io_logicGrid_0_4 (gameBoard_0_5),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:79:49, :110:28, :143:81
+    .io_logicGrid_0_5 (gameBoard_0_5),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:79:49, :110:28, :143:81
+    .io_logicGrid_0_7 (gameBoard_2_7),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:29, :79:49, :110:28, :143:81
+    .io_logicGrid_1_0 (gameBoard_2_0),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:29, :79:49, :110:28, :143:81
+    .io_logicGrid_1_7 (gameBoard_2_7),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:29, :79:49, :110:28, :143:81
+    .io_logicGrid_2_0 (gameBoard_2_0),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:29, :79:49, :110:28, :143:81
+    .io_logicGrid_2_2 (gameBoard_2_5),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:29, :79:49, :110:28, :143:81
+    .io_logicGrid_2_3 (gameBoard_2_5),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:29, :79:49, :110:28, :143:81
+    .io_logicGrid_2_4 (gameBoard_2_5),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:29, :79:49, :110:28, :143:81
+    .io_logicGrid_2_5 (gameBoard_2_5),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:29, :79:49, :110:28, :143:81
+    .io_logicGrid_2_7 (gameBoard_2_7),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:29, :79:49, :110:28, :143:81
+    .io_segs_0        (_grid_io_segs_0),
+    .io_segs_1        (_grid_io_segs_1),
+    .io_segs_2        (_grid_io_segs_2),
+    .io_segs_3        (_grid_io_segs_3)
   );
-  CharacterSelectFSM characterSelect (	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:33
+  CharacterSelectFSM characterSelect (	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:66:33
     .clock       (clock),
     .reset       (reset),
-    .io_char0    (_grid_io_segs_0),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:31:22
-    .io_char1    (_grid_io_segs_1),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:31:22
-    .io_char2    (_grid_io_segs_2),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:31:22
-    .io_char3    (_grid_io_segs_3),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:31:22
+    .io_char0    (_grid_io_segs_0),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:60:22
+    .io_char1    (_grid_io_segs_1),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:60:22
+    .io_char2    (_grid_io_segs_2),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:60:22
+    .io_char3    (_grid_io_segs_3),	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:60:22
     .io_segments (_characterSelect_io_segments),
     .io_anodes   (_characterSelect_io_anodes)
   );
-  PlayerInput playerInput_mod (	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:45:33
+  PlayerInput playerInput_mod (	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:73:33
     .clock              (clock),
     .reset              (reset),
     .io_buttons         (io_buttons),
     .io_snake_direction (_playerInput_mod_io_snake_direction)
+  );
+  AnyCounter gameClk (	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:74:25
+    .clock   (clock),
+    .reset   (reset),
+    .io_flag (_gameClk_io_flag)
   );
   assign io_segments =
     {_io_segments_T[0],
@@ -328,26 +330,26 @@ module simpleSnake(	// <stdin>:440:3
      _io_segments_T[3],
      _io_segments_T[4],
      _io_segments_T[5],
-     _io_segments_T[6]};	// <stdin>:440:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:99:{29,30}
-  assign io_anodes = ~_characterSelect_io_anodes;	// <stdin>:440:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:38:33, :100:22
+     _io_segments_T[6]};	// <stdin>:428:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:156:{29,30}
+  assign io_anodes = {_io_anodes_T[0], _io_anodes_T[1], _io_anodes_T[2], _io_anodes_T[3]};	// <stdin>:428:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:157:{29,30}
 endmodule
 
-module simpleSnakeTop(	// <stdin>:529:3
-  input        clock,	// <stdin>:530:11
-               reset,	// <stdin>:531:11
-  input  [3:0] io_board_buttons,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:111:20
-  output [6:0] io_board_segments,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:111:20
-  output [3:0] io_board_anodes,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:111:20
-  output       io_board_dp	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:111:20
+module simpleSnakeTop(	// <stdin>:1076:3
+  input        clock,	// <stdin>:1077:11
+               reset,	// <stdin>:1078:11
+  input  [3:0] io_board_buttons,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:168:20
+  output [6:0] io_board_segments,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:168:20
+  output [3:0] io_board_anodes,	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:168:20
+  output       io_board_dp	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:168:20
 );
 
-  simpleSnake game (	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:118:26
+  simpleSnake game (	// C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:175:26
     .clock       (clock),
     .reset       (reset),
     .io_buttons  (io_board_buttons),
     .io_segments (io_board_segments),
     .io_anodes   (io_board_anodes)
   );
-  assign io_board_dp = 1'h1;	// <stdin>:529:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:118:26
+  assign io_board_dp = 1'h1;	// <stdin>:1076:3, C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\src\\main\\scala\\Demo\\simpleSnake.scala:175:26
 endmodule
 

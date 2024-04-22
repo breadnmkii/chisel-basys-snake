@@ -28,12 +28,40 @@ class simpleSnake(tickPeriod: Int) extends Module {
     })
 
     /* REGISTER/WIRE INITIALIZATIONS */
-    val grid = Module(new GridLogic(3,8))   // 3x8 logical grid
-    grid.io.logicGrid(0) := "b00000000".U
-    grid.io.logicGrid(1) := "b00000000".U
-    grid.io.logicGrid(2) := "b00000000".U
+    val rows = 3
+    val cols = 8
+
+    // Initial board registers
+    val gameBoard = Wire(Vec(rows, Vec(cols, UInt(1.W))))
+    for (i <- 0 until rows) {   // Initialize gameBoard registers
+        for (j <- 0 until cols) {
+            gameBoard(i)(j) := 0.U
+        }
+    }
     
+    // Registers for two snake segment coordinates
+    val maxSnakeLen = 3
+    val snakeHead = maxSnakeLen - 1
+    val snakePos = Wire(Vec(maxSnakeLen, Vec(2, UInt(3.W))))
+    // Initial positions
+    /* Note: The top left corner of board looks like:
+     * 0,0  0,1 0,2 ...
+     * 1,0  1,1 ...
+     * 2,0  ...
+     */
+    snakePos(snakeHead) := VecInit(0.U, 0.U)    // head of snake
+    snakePos(1) := VecInit(1.U, 0.U)
+    snakePos(0) := VecInit(2.U, 0.U)
+
+
     /* MODULE INITIALIZATIONS */
+
+    // GridLogic mod
+    val grid = Module(new GridLogic(rows,cols))   // 3x8 logical grid
+    grid.io.logicGrid(0) := gameBoard(0)
+    grid.io.logicGrid(1) := gameBoard(1)
+    grid.io.logicGrid(2) := gameBoard(2)
+    
     // Display mods
     val characterSelect = Module(new CharacterSelectFSM)
     characterSelect.io.char0 := grid.io.segs(0)
@@ -45,30 +73,34 @@ class simpleSnake(tickPeriod: Int) extends Module {
     val playerInput_mod = Module(new PlayerInput)
     val gameClk = Module(new AnyCounter(tickPeriod, 32))
 
-
+    
     /* COMBINATIONAL LOGIC */
+    
     switch (playerInput_mod.io.snake_direction) {
         is (playerInput_mod.up) {
-            grid.io.logicGrid(0) := "b11111111".U
-            grid.io.logicGrid(1) := "b10000001".U
-            grid.io.logicGrid(2) := "b11111111".U
+            gameBoard(0)(2) := 1.U
+            gameBoard(0)(3) := 1.U
+            gameBoard(0)(4) := 1.U
+            gameBoard(0)(5) := 1.U
         }
         is (playerInput_mod.right) {
-            grid.io.logicGrid(0) := "b10010011".U
-            grid.io.logicGrid(1) := "b10010011".U
-            grid.io.logicGrid(2) := "b10010011".U
+            gameBoard(0)(7) := 1.U
+            gameBoard(1)(7) := 1.U
+            gameBoard(2)(7) := 1.U
         }
         is (playerInput_mod.down) {
-            grid.io.logicGrid(0) := "b10101010".U
-            grid.io.logicGrid(1) := "b11111110".U
-            grid.io.logicGrid(2) := "b01010100".U
+            gameBoard(2)(2) := 1.U
+            gameBoard(2)(3) := 1.U
+            gameBoard(2)(4) := 1.U
+            gameBoard(2)(5) := 1.U
         }
         is (playerInput_mod.left) {
-            grid.io.logicGrid(0) := "b00100100".U
-            grid.io.logicGrid(1) := "b00100100".U
-            grid.io.logicGrid(2) := "b00100100".U
+            gameBoard(0)(0) := 1.U
+            gameBoard(1)(0) := 1.U
+            gameBoard(2)(0) := 1.U
         }
     }
+    
 
     
 
@@ -76,22 +108,44 @@ class simpleSnake(tickPeriod: Int) extends Module {
 
     // Executes every game clock tick
     when (gameClk.io.flag) {
-        
+        // Back-propagate snakePos segments
+        for (i <- 0 until snakeHead) {
+
+        }
+
         // Update head position of snake
+        /*
         switch (playerInput_mod.io.snake_direction) {
             is (playerInput_mod.right) {
                 // row = row, col += 1
-                
+                snakePos(snakeHead) := VecInit(snakePos(snakeHead)(0), snakePos(snakeHead)(1)+1.U)
             }
             is (playerInput_mod.left) {
                 // row = row, col -= 1
-                
+                snakePos(snakeHead) := VecInit(snakePos(snakeHead)(0), snakePos(snakeHead)(1)-1.U)
             }
             is (playerInput_mod.up) {
                 // row -= 1, col = col
+                snakePos(snakeHead) := VecInit(snakePos(snakeHead)(0)-1.U, snakePos(snakeHead)(1))
             }
             is (playerInput_mod.down) {
                 // row += 1, col = col
+                snakePos(snakeHead) := VecInit(snakePos(snakeHead)(0)+1.U, snakePos(snakeHead)(1))
+            }
+        }
+        */
+
+        // Refresh gameBoard with snakePos positions
+        for (i <- 0 until rows) {
+            for (j <- 0 until cols) {
+                // Check each snakepos (kinda inefficient...?)
+                for (pos <- 0 until maxSnakeLen) {
+                    when (snakePos(pos)(0) === i.U && snakePos(pos)(1) === j.U) {
+                        gameBoard(i)(j) := 1.U  // enable node
+                    }.otherwise {
+                        gameBoard(i)(j) := 0.U  // clear node
+                    }
+                }
             }
         }
     }
@@ -100,7 +154,7 @@ class simpleSnake(tickPeriod: Int) extends Module {
     /* PHYSICAL IO CONNECTIONS */
     // Output
     io.segments  :=  Reverse(~characterSelect.io.segments)
-    io.anodes    :=  ~characterSelect.io.anodes
+    io.anodes    :=  Reverse(~characterSelect.io.anodes)
 
     io.dp := ~"b0".U        // enable all apples
 

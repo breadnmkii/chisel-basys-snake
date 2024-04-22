@@ -18,7 +18,7 @@
         "classpath": [
             "C:\\Users\\Bylue\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\sbt\\1.9.8\\sbt-1.9.8.jar",
             "C:\\Users\\Bylue\\.sbt\\boot\\scala-2.12.18\\lib\\scala-library.jar",
-            "C:\\Users\\Bylue\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\sbt-bloop_2.12_1.0\\1.5.15\\sbt-bloop_2.12_1.0-1.5.15.jar",
+            "C:\\Users\\Bylue\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\sbt-bloop_2.12_1.0\\1.5.17\\sbt-bloop_2.12_1.0-1.5.17.jar",
             "C:\\Users\\Bylue\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\main_2.12\\1.9.8\\main_2.12-1.9.8.jar",
             "C:\\Users\\Bylue\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\io_2.12\\1.9.8\\io_2.12-1.9.8.jar",
             "C:\\Users\\Bylue\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\bloop-config_2.12\\1.5.5\\bloop-config_2.12-1.5.5.jar",
@@ -228,7 +228,7 @@
             },
             "classpath": [
                 "C:\\Users\\Bylue\\Desktop\\WUSTL\\DD Chisel\\repos\\chisel-basys-snake\\project\\.bloop\\chisel-basys-snake-build\\scala-2.12\\sbt-1.0\\classes",
-                "C:\\Users\\Bylue\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\sbt-bloop_2.12_1.0\\1.5.15\\sbt-bloop_2.12_1.0-1.5.15.jar",
+                "C:\\Users\\Bylue\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\sbt-bloop_2.12_1.0\\1.5.17\\sbt-bloop_2.12_1.0-1.5.17.jar",
                 "C:\\Users\\Bylue\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\bloop-config_2.12\\1.5.5\\bloop-config_2.12-1.5.5.jar",
                 "C:\\Users\\Bylue\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\github\\plokhotnyuk\\jsoniter-scala\\jsoniter-scala-core_2.12\\2.4.0\\jsoniter-scala-core_2.12-2.4.0.jar",
                 "C:\\Users\\Bylue\\.sbt\\boot\\scala-2.12.18\\lib\\scala-library.jar"
@@ -239,17 +239,17 @@
                 {
                     "organization": "ch.epfl.scala",
                     "name": "sbt-bloop",
-                    "version": "1.5.15",
+                    "version": "1.5.17",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "sbt-bloop",
-                            "path": "C:\\Users\\Bylue\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\sbt-bloop_2.12_1.0\\1.5.15\\sbt-bloop_2.12_1.0-1.5.15.jar"
+                            "path": "C:\\Users\\Bylue\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\sbt-bloop_2.12_1.0\\1.5.17\\sbt-bloop_2.12_1.0-1.5.17.jar"
                         },
                         {
                             "name": "sbt-bloop",
                             "classifier": "sources",
-                            "path": "C:\\Users\\Bylue\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\sbt-bloop_2.12_1.0\\1.5.15\\sbt-bloop_2.12_1.0-1.5.15-sources.jar"
+                            "path": "C:\\Users\\Bylue\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\sbt-bloop_2.12_1.0\\1.5.17\\sbt-bloop_2.12_1.0-1.5.17-sources.jar"
                         }
                     ]
                 },

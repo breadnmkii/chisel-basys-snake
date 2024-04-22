@@ -12,7 +12,7 @@ import chisel3.util._
 */
 class GridLogic(rows: Int, cols: Int) extends Module {
     val io = IO(new Bundle {
-        val logicGrid = Input(Vec(rows, UInt(cols.W)))     // logical grid
+        val logicGrid = Input(Vec(rows, Vec(cols, UInt(1.W))))     // logical grid
         val segs = Output(Vec(cols/2, UInt(7.W)))          // physical display
     })
 
@@ -39,7 +39,7 @@ class GridLogic(rows: Int, cols: Int) extends Module {
          // scan horizontal grid
         for (j <- 0 until cols/2) {
             // Note: j --> j*2 for stepping thru cols/2 top cathode count
-            when (io.logicGrid(i)(j*2) && io.logicGrid(i)((j*2)+1)) {
+            when ((io.logicGrid(i)(j*2) & io.logicGrid(i)((j*2)+1)) === 1.U) {
                 i match {
                     // top seg row (A cathode)
                     case 0 => {
@@ -61,39 +61,27 @@ class GridLogic(rows: Int, cols: Int) extends Module {
         for (j <- 0 until cols) { // do you think fpgas would get mad at me for col-wise iteration??
             
             // Only draw vertical lines if middle row enabled
-            when (io.logicGrid(1)(j)) {
+            when (io.logicGrid(1)(j) === 1.U) {
                 
-                if (j%2 == 0) {
+                if (j%2 != 0) {
                     // odd col, segments B or C
-                    when (io.logicGrid(0)(j)) { // top segment
+                    when (io.logicGrid(0)(j) === 1.U) { // top segment
                         segVals(j/2)(1) := 1.U   // 1 = B
                     }
-                    when (io.logicGrid(2)(j)) { // bottom segment
+                    when (io.logicGrid(2)(j) === 1.U) { // bottom segment
                         // odd col, segment C
                         segVals(j/2)(2) := 1.U  // 2 = C
                     }
                 } else {
                     // even col, segments F or E
-                    when (io.logicGrid(0)(j)) { // top segment
-                        
+                    when (io.logicGrid(0)(j) === 1.U) { // top segment
                         segVals(j/2)(5) := 1.U   // 5 = F
                     }
-                    when (io.logicGrid(2)(j)) { // bottom segment
+                    when (io.logicGrid(2)(j) === 1.U) { // bottom segment
                         segVals(j/2)(4) := 1.U  // 4 = E
                     }
                 }
             }
         }
     }
-
-
-
-  // output a collision signal if any overlap
-  //    - player collision signal
-  //    - apple collision signal
-
-  // and have bounds checking
-  //    - player out of bounds signal
-
-  // additional IO signals for segment display driver
 }
