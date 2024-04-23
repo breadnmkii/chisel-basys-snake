@@ -112,8 +112,6 @@ class simpleSnake(tickPeriod: Int) extends Module {
             is (playerInput_mod.up) {
                 // row -= 1, col = col
                 snakePos(snakeHead) := VecInit(snakePos(snakeHead)(0)-1.U, snakePos(snakeHead)(1))
-                // snakePos(snakeHead)(0) := snakePos(snakeHead)(0)
-                // snakePos(snakeHead)(1) := snakePos(snakeHead)(1) + 1.U
             }
             is (playerInput_mod.down) {
                 // row += 1, col = col
