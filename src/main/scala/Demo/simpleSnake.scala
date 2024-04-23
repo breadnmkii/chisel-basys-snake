@@ -43,7 +43,7 @@ class simpleSnake(tickPeriod: Int) extends Module {
     }
     
     // Registers for two snake segment coordinates
-    val maxSnakeLen = 2
+    val maxSnakeLen = 3
     val snakeHead = maxSnakeLen - 1
     val snakePos = Reg(Vec(maxSnakeLen, Vec(2, UInt(3.W))))
     // Initial positions
@@ -53,9 +53,9 @@ class simpleSnake(tickPeriod: Int) extends Module {
      * 2,0  ...
      */
     when (gameStart === 0.U) {
-        snakePos(snakeHead) := VecInit(0.U, 1.U)    // head of snake
-        snakePos(0) := VecInit(0.U, 0.U)
-        // snakePos(0) := VecInit(2.U, 0.U)
+        snakePos(snakeHead) := VecInit(0.U, 0.U)    // head of snake
+        snakePos(1) := VecInit(1.U, 0.U)
+        snakePos(0) := VecInit(2.U, 0.U)            // tail of snake
     }
 
 
@@ -94,12 +94,12 @@ class simpleSnake(tickPeriod: Int) extends Module {
         // Game started
         gameStart := 1.U
         
-        // Back-propagate snakePos segments
+        // Back-propagate snakePos body nodes
         for (i <- 0 until snakeHead) {
             snakePos(i) := snakePos(i+1)
         }
 
-        // Update head position of snake
+        // Update snakePos head node
         switch (playerInput_mod.io.snake_direction) {
             is (playerInput_mod.right) {
                 // row = row, col += 1

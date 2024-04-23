@@ -33,16 +33,16 @@ class PlayerInput extends Module {
 
 
 
-    when(io.buttons(0)) {
+    when(io.buttons(0) && lastDirection =/= down) {
         io.snake_direction := up
         io.isPressed := 1.U
-    }.elsewhen(io.buttons(1)) {
+    }.elsewhen(io.buttons(1) && lastDirection =/= left) {
         io.snake_direction := right
         io.isPressed := 1.U
-    }.elsewhen(io.buttons(2)) {
+    }.elsewhen(io.buttons(2) && lastDirection =/= up) {
         io.snake_direction := down
         io.isPressed := 1.U
-    }.elsewhen(io.buttons(3)) {
+    }.elsewhen(io.buttons(3) && lastDirection =/= right) {
         io.snake_direction := left
         io.isPressed := 1.U
     }.otherwise {
