@@ -27,15 +27,12 @@ class simpleSnake(tickPeriod: Int) extends Module {
         val buttons  = Input(UInt(4.W))  // controls
     })
 
-    /* REGISTER/WIRE INITIALIZATIONS */
+    /* REGISTER/WIRE INITIALIZATIONS *//////////////////////////////////////////////////////
     val rows = 3
     val cols = 8
 
     // Flag indicating whether game started or not
     val gameStart = RegInit(0.U)
-
-    // Debug reg
-    val debugReg = RegInit(0.U)
 
     // Initial board registers
     val gameBoard = Reg(Vec(rows, Vec(cols, UInt(1.W))))
@@ -55,22 +52,14 @@ class simpleSnake(tickPeriod: Int) extends Module {
      * 1,0  1,1 ...
      * 2,0  ...
      */
-    snakePos(snakeHead) := VecInit(0.U, 1.U)    // head of snake
-    snakePos(0) := VecInit(0.U, 0.U)
-    // snakePos(0) := VecInit(2.U, 0.U)
-
-    // DEBUG snaketest
-    val snakeTestHead = Reg(Vec(2, UInt(3.W)))
-    val snakeTestTail = Reg(Vec(2, UInt(3.W)))
     when (gameStart === 0.U) {
-        snakeTestHead(0) := 1.U // DEBUG: do we have to wrap this init only in a specific state so it doesn't override changes?
-        snakeTestHead(1) := 1.U
-        snakeTestTail(0) := 1.U
-        snakeTestTail(1) := 0.U
+        snakePos(snakeHead) := VecInit(0.U, 1.U)    // head of snake
+        snakePos(0) := VecInit(0.U, 0.U)
+        // snakePos(0) := VecInit(2.U, 0.U)
     }
 
 
-    /* MODULE INITIALIZATIONS */
+    /* MODULE INITIALIZATIONS *//////////////////////////////////////////////////////
     // GridLogic mod
     val grid = Module(new GridLogic(rows,cols))   // 3x8 logical grid
     grid.io.logicGrid(0) := gameBoard(0)
@@ -89,45 +78,25 @@ class simpleSnake(tickPeriod: Int) extends Module {
     val gameClk = Module(new AnyCounter(tickPeriod, 32))
 
     
-    /* COMBINATIONAL LOGIC */
+    /* COMBINATIONAL LOGIC *//////////////////////////////////////////////////////
+
     // Refresh gameBoard with snakePos positions
     for (pos <- 0 until maxSnakeLen) {
         gameBoard(snakePos(pos)(0))(snakePos(pos)(1)) := 1.U
     }
-
-    // Snaketest show
-    gameBoard(snakeTestHead(0))(snakeTestHead(1)) := 1.U
-    gameBoard(snakeTestTail(0))(snakeTestTail(1)) := 1.U
-
-    // debug
-    when (debugReg === 1.U) {
-        gameBoard(2)(0) := 1.U
-        gameBoard(2)(1) := 1.U
-    }
     
 
-    /* SEQUENTIAL LOGIC */
+
+    /* SEQUENTIAL LOGIC *//////////////////////////////////////////////////////
 
     // Executes every game clock tick
     when (gameClk.io.flag) {
-        
-        // debug
-        when (debugReg === 0.U) {
-            debugReg := 1.U
-        }.otherwise {
-            debugReg := 0.U
-        }
-
-        // snaketest
+        // Game started
         gameStart := 1.U
-        snakeTestTail := snakeTestHead
-        snakeTestHead(1) := snakeTestHead(1) + 1.U
         
-
         // Back-propagate snakePos segments
         for (i <- 0 until snakeHead) {
-            snakePos(i)(0) := snakePos(i+1)(0)
-            snakePos(i)(1) := snakePos(i+1)(1)
+            snakePos(i) := snakePos(i+1)
         }
 
         // Update head position of snake
@@ -142,9 +111,9 @@ class simpleSnake(tickPeriod: Int) extends Module {
             }
             is (playerInput_mod.up) {
                 // row -= 1, col = col
-                // snakePos(snakeHead) := VecInit(snakePos(snakeHead)(0)-1.U, snakePos(snakeHead)(1))
-                snakePos(snakeHead)(0) := snakePos(snakeHead)(0)
-                snakePos(snakeHead)(1) := snakePos(snakeHead)(1) + 1.U
+                snakePos(snakeHead) := VecInit(snakePos(snakeHead)(0)-1.U, snakePos(snakeHead)(1))
+                // snakePos(snakeHead)(0) := snakePos(snakeHead)(0)
+                // snakePos(snakeHead)(1) := snakePos(snakeHead)(1) + 1.U
             }
             is (playerInput_mod.down) {
                 // row += 1, col = col
@@ -158,8 +127,7 @@ class simpleSnake(tickPeriod: Int) extends Module {
     // Output
     io.segments  :=  Reverse(~characterSelect.io.segments)
     io.anodes    :=  Reverse(~characterSelect.io.anodes)
-
-    io.dp := ~"b0".U        // enable all apples
+    io.dp := ~"b0".U        // init off
 
     // Input
     playerInput_mod.io.buttons := io.buttons
