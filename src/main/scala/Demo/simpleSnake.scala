@@ -31,6 +31,9 @@ class simpleSnake(tickPeriod: Int) extends Module {
     val rows = 3
     val cols = 8
 
+    // Flag indicating whether game started or not
+    val gameStart = RegInit(0.U)
+
     // Debug reg
     val debugReg = RegInit(0.U)
 
@@ -55,6 +58,16 @@ class simpleSnake(tickPeriod: Int) extends Module {
     snakePos(snakeHead) := VecInit(0.U, 1.U)    // head of snake
     snakePos(0) := VecInit(0.U, 0.U)
     // snakePos(0) := VecInit(2.U, 0.U)
+
+    // DEBUG snaketest
+    val snakeTestHead = Reg(Vec(2, UInt(3.W)))
+    val snakeTestTail = Reg(Vec(2, UInt(3.W)))
+    when (gameStart === 0.U) {
+        snakeTestHead(0) := 1.U // DEBUG: do we have to wrap this init only in a specific state so it doesn't override changes?
+        snakeTestHead(1) := 1.U
+        snakeTestTail(0) := 1.U
+        snakeTestTail(1) := 0.U
+    }
 
 
     /* MODULE INITIALIZATIONS */
@@ -82,21 +95,34 @@ class simpleSnake(tickPeriod: Int) extends Module {
         gameBoard(snakePos(pos)(0))(snakePos(pos)(1)) := 1.U
     }
 
+    // Snaketest show
+    gameBoard(snakeTestHead(0))(snakeTestHead(1)) := 1.U
+    gameBoard(snakeTestTail(0))(snakeTestTail(1)) := 1.U
+
+    // debug
+    when (debugReg === 1.U) {
+        gameBoard(2)(0) := 1.U
+        gameBoard(2)(1) := 1.U
+    }
     
 
     /* SEQUENTIAL LOGIC */
 
     // Executes every game clock tick
     when (gameClk.io.flag) {
-   
-        /* NOTE: these values aren't being "remembered" and so board appears off all the time? */
-        // debugReg := 1.U
-        // when (debugReg === 1.U) {
-        //     gameBoard(0)(2) := 1.U
-        //     gameBoard(0)(3) := 1.U
-        // }
-        // grid.io.logicGrid(1)(2) := 1.U
-        // grid.io.logicGrid(1)(3) := 1.U
+        
+        // debug
+        when (debugReg === 0.U) {
+            debugReg := 1.U
+        }.otherwise {
+            debugReg := 0.U
+        }
+
+        // snaketest
+        gameStart := 1.U
+        snakeTestTail := snakeTestHead
+        snakeTestHead(1) := snakeTestHead(1) + 1.U
+        
 
         // Back-propagate snakePos segments
         for (i <- 0 until snakeHead) {
@@ -117,25 +143,14 @@ class simpleSnake(tickPeriod: Int) extends Module {
             is (playerInput_mod.up) {
                 // row -= 1, col = col
                 // snakePos(snakeHead) := VecInit(snakePos(snakeHead)(0)-1.U, snakePos(snakeHead)(1))
-                snakePos(snakeHead) := VecInit(snakePos(snakeHead)(0), snakePos(snakeHead)(1)+1.U) // DEBUG: REMOVE LATER
+                snakePos(snakeHead)(0) := snakePos(snakeHead)(0)
+                snakePos(snakeHead)(1) := snakePos(snakeHead)(1) + 1.U
             }
             is (playerInput_mod.down) {
                 // row += 1, col = col
                 snakePos(snakeHead) := VecInit(snakePos(snakeHead)(0)+1.U, snakePos(snakeHead)(1))
             }
         }
-
-        
-        // for (i <- 0 until rows) {
-        //     for (j <- 0 until cols) {
-        //         // Check each snakepos (kinda inefficient...?)
-        //         for (pos <- 0 until maxSnakeLen) {
-        //             when (snakePos(pos)(0) === i.U && snakePos(pos)(1) === j.U) {
-        //                 gameBoard(i)(j) := 1.U  // enable node
-        //             }
-        //         }
-        //     }
-        // }
     }
 
 
